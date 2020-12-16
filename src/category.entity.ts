@@ -1,4 +1,4 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, Timestamp } from 'typeorm'
+import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn  } from 'typeorm'
 
 @Entity()
 export class Category{
