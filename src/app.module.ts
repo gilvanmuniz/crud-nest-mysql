@@ -3,10 +3,13 @@ import { AppController } from './app.controller';
 import { TypeOrmModule} from "@nestjs/typeorm";
 import { ConfigModule} from "@nestjs/config";
 import { AppService } from './app.service';
-import { CategoryController } from './category/category.controller'
-import { CategoryService } from './category/category.service'
+import { CategoryController } from './category/category.controller';
+import { CategoryService } from './category/category.service';
 import { CategoryModule } from './category/category.module';
-import { Category } from './category.entity'
+import { Category } from './category.entity';
+import { Product } from './product/product.entity';
+import { ProductModule } from './product/product.module';
+
 
 @Module({
   imports: [
@@ -19,10 +22,11 @@ import { Category } from './category.entity'
           username: process.env.TYPEORM_USERNAME,
           password: process.env.TYPEORM_PASSWORD,
           database: process.env.TYPEORM_DATABASE,
-          entities: [Category],
+          entities: [Category, Product],
       }),
       TypeOrmModule.forFeature([Category]),
-    CategoryModule],
+    CategoryModule,
+    ProductModule],
   controllers: [AppController, CategoryController],
   providers: [AppService, CategoryService],
 })

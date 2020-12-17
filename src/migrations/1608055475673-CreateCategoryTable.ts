@@ -22,7 +22,7 @@ export class CreateCategoryTable1608055475673 implements MigrationInterface {
                     type: 'timestamp',
                     default: 'CURRENT_TIMESTAMP'
                 }
-            ]
+            ] 
         }))
     }
 

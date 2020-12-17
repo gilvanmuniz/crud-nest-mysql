@@ -1,4 +1,6 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn  } from 'typeorm'
+import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, OneToMany  } from 'typeorm'
+import { Product } from './product/product.entity'
+
 
 @Entity()
 export class Category{
@@ -8,6 +10,9 @@ export class Category{
 
     @Column()
     name: string;
+    
+    @OneToMany(type => Product, category => Category)
+    produto: Product[];
 
     @CreateDateColumn({ type:'timestamp'})
     created_at:Date;
